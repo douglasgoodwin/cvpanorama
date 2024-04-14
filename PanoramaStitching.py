@@ -2,9 +2,7 @@ from cv2 import getRectSubPix, xfeatures2d, BFMatcher, drawMatchesKnn, imwrite
 from cv2 import DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS
 import numpy as np
 
-import RANSACAlgorithm
-from RANSACAlgorithm import project
-
+from .RANSACAlgorithm import init, project
 
 # Determine image size by projecting image2 corners onto image1
 def stitch(image1, image2, hom, homInv):
@@ -91,7 +89,7 @@ def stitch_two_images(image1, image2, siftDisplayName, saveSiftMatches, siftFile
     # End source
 
     # Part 3: RANSAC
-    hom, homInv = RANSACAlgorithm.init(good_matches, kp1, kp2, ransacIterations, ransacThreshold, image1, image2,
+    hom, homInv = init(good_matches, kp1, kp2, ransacIterations, ransacThreshold, image1, image2,
                                        ransacDisplayName, saveRansacMatches, ransacFilePath)
     stitched_image = stitch(image1, image2, hom, homInv)
 

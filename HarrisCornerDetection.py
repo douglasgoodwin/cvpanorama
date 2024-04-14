@@ -1,6 +1,6 @@
 import numpy as np
 from cv2 import filter2D, GaussianBlur, circle, cvtColor, imwrite
-from cv2 import COLOR_BGR2GRAY, KeyPoint, 
+from cv2 import COLOR_BGR2GRAY, KeyPoint
 
 
 # Sobel operator kernels to calculate image gradients
